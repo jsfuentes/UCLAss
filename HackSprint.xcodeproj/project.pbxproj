@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		369C95ADEBDA4D607E5BDA0D /* libPods-HackSprint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6360271A61ADA9534023F0C9 /* libPods-HackSprint.a */; };
+		460B40532035400F00FB84F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 460B40522035400F00FB84F7 /* LaunchScreen.storyboard */; };
+		460B40552035401400FB84F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 460B40542035401400FB84F7 /* Main.storyboard */; };
 		46ABC4B8203534A200C4FDC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABC4B7203534A200C4FDC8 /* AppDelegate.swift */; };
 		46ABC4BA203534A200C4FDC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABC4B9203534A200C4FDC8 /* ViewController.swift */; };
-		46ABC4BD203534A200C4FDC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46ABC4BB203534A200C4FDC8 /* Main.storyboard */; };
 		46ABC4BF203534A200C4FDC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46ABC4BE203534A200C4FDC8 /* Assets.xcassets */; };
-		46ABC4C2203534A200C4FDC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46ABC4C0203534A200C4FDC8 /* LaunchScreen.storyboard */; };
 		46ABC4CD203534A200C4FDC8 /* HackSprintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABC4CC203534A200C4FDC8 /* HackSprintTests.swift */; };
 		46ABC4D8203534A200C4FDC8 /* HackSprintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABC4D7203534A200C4FDC8 /* HackSprintUITests.swift */; };
 /* End PBXBuildFile section */
@@ -34,12 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460B40522035400F00FB84F7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		460B40542035401400FB84F7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		46ABC4B4203534A200C4FDC8 /* HackSprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackSprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABC4B7203534A200C4FDC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46ABC4B9203534A200C4FDC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		46ABC4BC203534A200C4FDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46ABC4BE203534A200C4FDC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		46ABC4C1203534A200C4FDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46ABC4C3203534A200C4FDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46ABC4C8203534A200C4FDC8 /* HackSprintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackSprintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABC4CC203534A200C4FDC8 /* HackSprintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackSprintTests.swift; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		46ABC4D3203534A200C4FDC8 /* HackSprintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackSprintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABC4D7203534A200C4FDC8 /* HackSprintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackSprintUITests.swift; sourceTree = "<group>"; };
 		46ABC4D9203534A200C4FDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6360271A61ADA9534023F0C9 /* libPods-HackSprint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackSprint.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BAC7BE53F0DEB72D91224C4 /* Pods-HackSprint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackSprint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackSprint/Pods-HackSprint.debug.xcconfig"; sourceTree = "<group>"; };
+		BA484A33761943A6C3CA84C2 /* Pods-HackSprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackSprint.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackSprint/Pods-HackSprint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369C95ADEBDA4D607E5BDA0D /* libPods-HackSprint.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,8 @@
 				46ABC4CB203534A200C4FDC8 /* HackSprintTests */,
 				46ABC4D6203534A200C4FDC8 /* HackSprintUITests */,
 				46ABC4B5203534A200C4FDC8 /* Products */,
+				F72BE5CAFE9F4AC11E720D88 /* Pods */,
+				A646AF2B31EEC69822A08863 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +106,9 @@
 			children = (
 				46ABC4B7203534A200C4FDC8 /* AppDelegate.swift */,
 				46ABC4B9203534A200C4FDC8 /* ViewController.swift */,
-				46ABC4BB203534A200C4FDC8 /* Main.storyboard */,
+				460B40542035401400FB84F7 /* Main.storyboard */,
+				460B40522035400F00FB84F7 /* LaunchScreen.storyboard */,
 				46ABC4BE203534A200C4FDC8 /* Assets.xcassets */,
-				46ABC4C0203534A200C4FDC8 /* LaunchScreen.storyboard */,
 				46ABC4C3203534A200C4FDC8 /* Info.plist */,
 			);
 			path = HackSprint;
@@ -125,6 +132,23 @@
 			path = HackSprintUITests;
 			sourceTree = "<group>";
 		};
+		A646AF2B31EEC69822A08863 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6360271A61ADA9534023F0C9 /* libPods-HackSprint.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F72BE5CAFE9F4AC11E720D88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC7BE53F0DEB72D91224C4 /* Pods-HackSprint.debug.xcconfig */,
+				BA484A33761943A6C3CA84C2 /* Pods-HackSprint.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46ABC4DC203534A200C4FDC8 /* Build configuration list for PBXNativeTarget "HackSprint" */;
 			buildPhases = (
+				7483CA58D488AFF949CEE1A8 /* [CP] Check Pods Manifest.lock */,
 				46ABC4B0203534A200C4FDC8 /* Sources */,
 				46ABC4B1203534A200C4FDC8 /* Frameworks */,
 				46ABC4B2203534A200C4FDC8 /* Resources */,
+				ED3D02901707D9668D450DB1 /* [CP] Embed Pods Frameworks */,
+				F5A2D71B2107CB56293F24D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46ABC4C2203534A200C4FDC8 /* LaunchScreen.storyboard in Resources */,
+				460B40552035401400FB84F7 /* Main.storyboard in Resources */,
 				46ABC4BF203534A200C4FDC8 /* Assets.xcassets in Resources */,
-				46ABC4BD203534A200C4FDC8 /* Main.storyboard in Resources */,
+				460B40532035400F00FB84F7 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +280,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7483CA58D488AFF949CEE1A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackSprint-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED3D02901707D9668D450DB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackSprint/Pods-HackSprint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5A2D71B2107CB56293F24D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackSprint/Pods-HackSprint-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackSprint/Pods-HackSprint-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		46ABC4B0203534A200C4FDC8 /* Sources */ = {
@@ -294,25 +377,6 @@
 			targetProxy = 46ABC4D4203534A200C4FDC8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		46ABC4BB203534A200C4FDC8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46ABC4BC203534A200C4FDC8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		46ABC4C0203534A200C4FDC8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46ABC4C1203534A200C4FDC8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		46ABC4DA203534A200C4FDC8 /* Debug */ = {
@@ -412,6 +476,7 @@
 		};
 		46ABC4DD203534A200C4FDC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BAC7BE53F0DEB72D91224C4 /* Pods-HackSprint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HackSprint/Info.plist;
@@ -424,6 +489,7 @@
 		};
 		46ABC4DE203534A200C4FDC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA484A33761943A6C3CA84C2 /* Pods-HackSprint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HackSprint/Info.plist;
@@ -507,6 +573,7 @@
 				46ABC4DE203534A200C4FDC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46ABC4DF203534A200C4FDC8 /* Build configuration list for PBXNativeTarget "HackSprintTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +582,7 @@
 				46ABC4E1203534A200C4FDC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46ABC4E2203534A200C4FDC8 /* Build configuration list for PBXNativeTarget "HackSprintUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +591,7 @@
 				46ABC4E4203534A200C4FDC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
