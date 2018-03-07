@@ -12,6 +12,7 @@ class LaunchViewController: UIViewController {
 
     @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var classesButton: UIButton!
+    @IBOutlet weak var label: UILabel!
     
     // Empty classroom = 0
     // Fun classes = 1

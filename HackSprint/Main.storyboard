@@ -121,7 +121,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmQ-KF-pdC">
                                 <rect key="frame" x="33" y="401" width="308" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="An Empty Classroom"/>
+                                <state key="normal" title="Empty Classrooms"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="EmptyClassroom" id="AdJ-Oh-jAG"/>
                                 </connections>
@@ -185,6 +185,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="330" id="Xz5-cW-WlA"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zYv-sO-eMO">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zYv-sO-eMO" id="RuU-g5-2Te">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTB-OR-vpH" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="265"/>
