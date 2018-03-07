@@ -48,22 +48,27 @@ class SearchViewController: UIViewController, UISearchBarDelegate, CLLocationMan
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self as CLLocationManagerDelegate
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self as CLLocationManagerDelegate
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        }
+//        
+//        currentLatitude = locationManager.location?.coordinate.latitude
+//        currentLongitude = locationManager.location?.coordinate.longitude
+//        
+//        let camera = GMSCameraPosition.camera(withLatitude: currentLatitude, longitude: currentLongitude, zoom: 15.0)
+//        mapView?.camera = camera
+//        let camera_update = GMSCameraUpdate.setCamera(camera)
+//        mapView?.moveCamera(camera_update)
         
-        currentLatitude = locationManager.location?.coordinate.latitude
-        currentLongitude = locationManager.location?.coordinate.longitude
-        
-        let camera = GMSCameraPosition.camera(withLatitude: currentLatitude, longitude: currentLongitude, zoom: 15.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 34.0689, longitude: -118.4452, zoom: 16.0)
         mapView?.camera = camera
         let camera_update = GMSCameraUpdate.setCamera(camera)
         mapView?.moveCamera(camera_update)
         
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+        marker.position = CLLocationCoordinate2D(latitude: 34.0689, longitude: -118.4452)
         marker.title = "You are here"
         marker.map = mapView
         

@@ -28,9 +28,6 @@ class ClassesViewController: UIViewController {
         
         super.viewDidLoad()
         
-//        classesLabel.textColor = UIColor.white
-//        classesLabel.layer.backgroundColor = UIColor(red: 141/255, green: 178/255, blue: 234/255, alpha: 1.0).cgColor
-        
         let lat = geocoords.0
         let long = geocoords.1
         
