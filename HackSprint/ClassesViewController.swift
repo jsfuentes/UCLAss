@@ -40,6 +40,7 @@ class ClassesViewController: UIViewController {
         marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
         marker.title = building
         marker.map = mapView
+        getClasses(building: "Boelter")
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,10 +112,10 @@ class ClassesViewController: UIViewController {
             
             //            print(filteredClasses)
             
-            //            for c in filteredClasses {
-            //                var day_time = c.day_time.replacingOccurrences(of: "\n", with: "")
-            //                print(day_time)
-            //            }
+            for c in filteredClasses {
+                var day_time = c.day_time.replacingOccurrences(of: "\n", with: "")
+                print(day_time)
+            }
             
             //            print(buildings)
             
