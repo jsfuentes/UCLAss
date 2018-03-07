@@ -170,7 +170,7 @@
         <!--Classes View Controller-->
         <scene sceneID="LfN-hl-SjW">
             <objects>
-                <viewController id="Fzo-La-2eK" customClass="ClassesViewController" customModule="HackSprint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fzo-La-2eK" customClass="ClassesViewController" customModule="HackSprint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xdt-5S-cbE"/>
                         <viewControllerLayoutGuide type="bottom" id="Tpc-x2-3om"/>
@@ -180,13 +180,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YPJ-5Y-kZR">
-                                <rect key="frame" x="0.0" y="337" width="375" height="330"/>
+                                <rect key="frame" x="0.0" y="404" width="375" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="330" id="Xz5-cW-WlA"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zYv-sO-eMO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="zYv-sO-eMO">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zYv-sO-eMO" id="RuU-g5-2Te">
@@ -197,22 +194,33 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTB-OR-vpH" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="265"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="287"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Current Classes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCA-aW-Pkw">
+                                <rect key="frame" x="0.0" y="366" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KTB-OR-vpH" firstAttribute="top" secondItem="Xdt-5S-cbE" secondAttribute="bottom" id="2po-jW-X1a"/>
-                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="top" secondItem="KTB-OR-vpH" secondAttribute="bottom" constant="8" symbolic="YES" id="E7D-7Y-Oem"/>
-                            <constraint firstItem="KTB-OR-vpH" firstAttribute="leading" secondItem="YPJ-5Y-kZR" secondAttribute="leading" id="Zuw-cm-2IR"/>
-                            <constraint firstItem="KTB-OR-vpH" firstAttribute="leading" secondItem="LMH-sf-ccO" secondAttribute="leading" id="b9c-k5-Qfl"/>
-                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="bottom" secondItem="Tpc-x2-3om" secondAttribute="top" id="hvE-Pa-K8e"/>
-                            <constraint firstItem="KTB-OR-vpH" firstAttribute="trailing" secondItem="YPJ-5Y-kZR" secondAttribute="trailing" id="n03-qZ-Vye"/>
-                            <constraint firstAttribute="trailing" secondItem="KTB-OR-vpH" secondAttribute="trailing" id="rrj-gM-lp6"/>
+                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="top" secondItem="QCA-aW-Pkw" secondAttribute="bottom" constant="8" symbolic="YES" id="5H6-hD-vpE"/>
+                            <constraint firstItem="QCA-aW-Pkw" firstAttribute="leading" secondItem="YPJ-5Y-kZR" secondAttribute="leading" id="9VF-8h-mI9"/>
+                            <constraint firstAttribute="bottom" secondItem="QCA-aW-Pkw" secondAttribute="bottom" constant="271" id="HKh-s7-0Jz"/>
+                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="leading" secondItem="KTB-OR-vpH" secondAttribute="leading" id="SaS-9L-Wmt"/>
+                            <constraint firstItem="QCA-aW-Pkw" firstAttribute="top" secondItem="KTB-OR-vpH" secondAttribute="bottom" constant="15" id="TCR-SZ-4UR"/>
+                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="leading" secondItem="LMH-sf-ccO" secondAttribute="leading" id="aea-Qt-G8N"/>
+                            <constraint firstItem="QCA-aW-Pkw" firstAttribute="trailing" secondItem="YPJ-5Y-kZR" secondAttribute="trailing" id="ash-c1-xQb"/>
+                            <constraint firstAttribute="trailing" secondItem="YPJ-5Y-kZR" secondAttribute="trailing" id="q1i-mj-sOP"/>
+                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="bottom" secondItem="Tpc-x2-3om" secondAttribute="top" id="ug3-YY-tDF"/>
+                            <constraint firstItem="YPJ-5Y-kZR" firstAttribute="trailing" secondItem="KTB-OR-vpH" secondAttribute="trailing" id="yCq-nz-PQc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="classesLabel" destination="QCA-aW-Pkw" id="sy0-Sm-uja"/>
                         <outlet property="mapView" destination="KTB-OR-vpH" id="WLk-xd-qXW"/>
                         <outlet property="tableView" destination="YPJ-5Y-kZR" id="ear-a2-NKP"/>
                     </connections>

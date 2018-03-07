@@ -15,18 +15,21 @@ class ClassesViewController: UIViewController {
 
     @IBOutlet var mapView: GMSMapView?
     @IBOutlet weak var tableView: UITableView!
-        
+    @IBOutlet weak var classesLabel: UILabel!
+    
     var building: String!
     var geocoords: (Double, Double)!
-    
     var option: Int!
+    var filteredClasses: [String] = []
     
     override func viewDidLoad() {
-//        print(building)
-//        print(geocoords)
+        //print(geocoords)
 //        print(option)
         
         super.viewDidLoad()
+        
+//        classesLabel.textColor = UIColor.white
+//        classesLabel.layer.backgroundColor = UIColor(red: 141/255, green: 178/255, blue: 234/255, alpha: 1.0).cgColor
         
         let lat = geocoords.0
         let long = geocoords.1
@@ -40,12 +43,24 @@ class ClassesViewController: UIViewController {
         marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
         marker.title = building
         marker.map = mapView
-        getClasses(building: "Boelter")
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        classesLabel.font = UIFont.boldSystemFont(ofSize: 28.0)
+        
+        getClasses(building: building)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func populateListView(classes: [uclass]) {
+        for c in classes {
+            filteredClasses.append(c.course)
+        }
     }
     
     //Since swift is a little bitch and won't let me return the first letter of a String
@@ -77,6 +92,7 @@ class ClassesViewController: UIViewController {
     }
     
     func getClasses(building: String) {
+        print(building)
         var filteredClasses: [uclass] = []
         
         Alamofire.request("http://api.ucladevx.com/courses/?quarter=Winter").responseJSON { (response) in
@@ -117,10 +133,29 @@ class ClassesViewController: UIViewController {
                 print(day_time)
             }
             
+            self.populateListView(classes: filteredClasses)
+            self.tableView.reloadData()
             //            print(buildings)
             
             //            print(String(data: response.data!, encoding: String.Encoding.utf8)!)
         }
         
+    }
+}
+
+extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = filteredClasses[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(filteredClasses)
+        return filteredClasses.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }
