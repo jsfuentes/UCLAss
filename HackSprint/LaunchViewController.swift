@@ -13,6 +13,7 @@ class LaunchViewController: UIViewController {
     @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var classesButton: UIButton!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var appNameLabel: UILabel!
     
     // Empty classroom = 0
     // Fun classes = 1
@@ -34,6 +35,19 @@ class LaunchViewController: UIViewController {
         super.viewDidLoad()
         emptyButton.tag = 0
         classesButton.tag = 1
+        
+        appNameLabel.font = UIFont(name: "Helvetica-Light", size: 50)
+        
+        emptyButton.layer.cornerRadius = 5
+        emptyButton.layer.borderWidth = 1
+        emptyButton.layer.borderColor = UIColor.white.cgColor
+        emptyButton.contentEdgeInsets = UIEdgeInsetsMake(0,0,0,0)
+
+        classesButton.layer.cornerRadius = 5
+        classesButton.layer.borderWidth = 1
+        classesButton.layer.borderColor = UIColor.white.cgColor
+        classesButton.contentEdgeInsets = UIEdgeInsetsMake(0,0,0,0)
+
     }
 
     override func didReceiveMemoryWarning() {

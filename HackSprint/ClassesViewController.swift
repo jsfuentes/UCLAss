@@ -22,15 +22,12 @@ class ClassesViewController: UIViewController {
     var building: String!
     var geocoords: (Double, Double)!
     var option: Int!
-    var filteredClasses: [String] = []
+    var filteredClasses: [uclass] = []
     
     let today = "Wednesday, March 7, 2018 at 10:15:08 AM Pacific Standard Time"
     //        let today = Date().description(with: .current)
     
     override func viewDidLoad() {
-        //print(geocoords)
-//        print(option)
-        
         super.viewDidLoad()
         
         let lat = geocoords.0
@@ -49,7 +46,7 @@ class ClassesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        classesLabel.font = UIFont.boldSystemFont(ofSize: 28.0)
+        classesLabel.font = UIFont(name: "Helvetica-Light", size: 28.0)
         
         print("Running with", today)
         getClasses(building: building)
@@ -58,12 +55,6 @@ class ClassesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func populateListView(classes: [uclass]) {
-        for c in classes {
-            filteredClasses.append(c.course)
-        }
     }
     
     //Since swift is a little bitch and won't let me return the first letter of a String
@@ -246,16 +237,19 @@ class ClassesViewController: UIViewController {
                 }
             }
             
+            for c in filteredClasses {
+                self.filteredClasses.append(c)
+            }
+            
+            self.tableView.reloadData()
+            
 //            print(filteredClasses)
             
 //            for c in filteredClasses {
 //                print(c.day_time)
 //            }
             print("Finished Processing Classes")
-            
-            self.populateListView(classes: filteredClasses)
-            self.tableView.reloadData()
-            //            print(buildings)
+                        //            print(buildings)
             
             //            print(String(data: response.data!, encoding: String.Encoding.utf8)!)
         }
@@ -266,7 +260,7 @@ class ClassesViewController: UIViewController {
 extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = filteredClasses[indexPath.row]
+        cell.textLabel?.text = filteredClasses[indexPath.row].subject + ": " + filteredClasses[indexPath.row].course
         return cell
     }
     
