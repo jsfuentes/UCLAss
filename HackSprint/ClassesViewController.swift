@@ -189,12 +189,14 @@ class ClassesViewController: UIViewController {
                     if let c = anyC as? [String: String] {
                         let course = c["course"]
                         let subject = c["subject"]
-                        
+                        let courseType = c["sections"]
                         let instructors = c["instructors"]
                         let locations = c["locations"]
                         let day_times = c["day_times"]
                         let rawLocation = locations?.components(separatedBy: "|*|")
                         let rawInstructor = instructors?.components(separatedBy: "|*|")
+                        let raw_day_time = day_times?.components(separatedBy: "|*|")
+                        let rawCourseType = courseType?.components(separatedBy: "|*|")
                         //TODO: THIS WAS TOO MUCH EFFORT FOR LITTLE REWARD CAN FINISH LATER
 //                        //Some of the locations have a new line in it: https://sa.ucla.edu/ro/ClassSearch/Results?t=18W&sBy=subject&sName=Statistics+%28STATS%29&subj=STATS&crsCatlg=13+-+Introduction+to+Statistical+Methods+for+Life+and+Health+Sciences&catlg=0013&cls_no=%25&btnIsInIndex=btn_inIndex&btnIsExchange=False
 //                        var location: [String] = []
@@ -213,7 +215,6 @@ class ClassesViewController: UIViewController {
 //                        }
 //                        //Get the right day time for the above cases
 //                        var day_time: [String] = []
-                        let raw_day_time = day_times?.components(separatedBy: "|*|")
 //                        for dt in raw_day_time! {
 //                            if (dt.range(of: "\n") != nil) {
 //                                print(dt)
@@ -230,8 +231,12 @@ class ClassesViewController: UIViewController {
 //                        }
                         
                         for (i, loc) in rawLocation!.enumerated() {
+                            var myClass: uclass
                             if (loc.range(of:building) != nil) {
-                                let myClass = uclass(course: course!, subject: subject!, location: loc, instructor: rawInstructor![i], day_time: raw_day_time![i])
+                                //TODO: Investigate why some course_type don't exist
+                                let curCourseType = (rawCourseType!.count > i ? rawCourseType![i] : "Unknown") as String
+                                myClass = uclass(course: course!, subject: subject!, location: loc, instructor: rawInstructor![i], day_time: raw_day_time![i], course_type: curCourseType)
+                                
                                 //discard classes for now, look at above TODO
                                 if(myClass.day_time.range(of: "\n") == nil) {
                                     allClassrooms.insert(loc)
@@ -250,11 +255,10 @@ class ClassesViewController: UIViewController {
             }
             
             self.emptyClassrooms = Array(allClassrooms.subtracting(nowClassrooms))
-            print(self.emptyClassrooms)
-
+//            print(self.emptyClassrooms)
+            print(self.filteredClasses)
             self.tableView.reloadData()
             
-//            print(filteredClasses)
             
 //            for c in filteredClasses {
 //                print(c.day_time)

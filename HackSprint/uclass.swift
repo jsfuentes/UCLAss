@@ -15,4 +15,5 @@ struct uclass {
     var location: String
     var instructor: String
     var day_time: String
+    var course_type: String
 }
