@@ -176,6 +176,9 @@ class ClassesViewController: UIViewController {
     }
     
     func getClasses(building: String) {
+        filteredClasses = []
+        emptyClassrooms = []
+        
         print(building)
 //        var filteredClasses: [uclass] = []
         var nowClassrooms: Set = Set<String>()
