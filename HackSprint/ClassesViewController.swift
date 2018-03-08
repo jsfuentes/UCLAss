@@ -24,6 +24,7 @@ class ClassesViewController: UIViewController {
     var option: Int!
     var filteredClasses: [uclass] = []
     var emptyClassrooms: [String] = []
+    var processedClasses = false
     
     let today = "Wednesday, March 7, 2018 at 9:15:08 AM Pacific Standard Time"
     //        let today = Date().description(with: .current)
@@ -257,6 +258,7 @@ class ClassesViewController: UIViewController {
             self.emptyClassrooms = Array(allClassrooms.subtracting(nowClassrooms))
 //            print(self.emptyClassrooms)
             print(self.filteredClasses)
+            self.processedClasses = true
             self.tableView.reloadData()
             
             
@@ -275,12 +277,29 @@ class ClassesViewController: UIViewController {
 extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
+        
+        var fillerText: String
+        if(processedClasses){
+            fillerText = "None"
+        } else {
+            fillerText = "Loading"
+        }
+        
+        
         if (option == 0) {
             // empty classrooms
-            cell.textLabel?.text = emptyClassrooms[indexPath.row]
+            if(emptyClassrooms.count == 0) {
+                cell.textLabel?.text = fillerText
+            } else {
+                cell.textLabel?.text = emptyClassrooms[indexPath.row]
+            }
         }
         else if (option == 1) {
-            cell.textLabel?.text = filteredClasses[indexPath.row].subject + ": " + filteredClasses[indexPath.row].course
+            if(filteredClasses.count == 0) {
+                cell.textLabel?.text = fillerText
+            } else {
+                cell.textLabel?.text = filteredClasses[indexPath.row].course + ": " + filteredClasses[indexPath.row].subject
+            }
         }
         return cell
     }
@@ -288,9 +307,18 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        print(filteredClasses)
         if (option == 0) {
-            return emptyClassrooms.count
+            if (emptyClassrooms.count == 0) {
+                return 1
+            } else {
+                return emptyClassrooms.count
+            }
         }
-        return filteredClasses.count
+        
+        if (filteredClasses.count == 0) {
+            return 1
+        } else {
+            return filteredClasses.count
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
