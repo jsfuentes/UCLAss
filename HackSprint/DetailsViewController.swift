@@ -21,6 +21,10 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(filteredClasses.count == 0){
+            courseLabel.text = "No class details"
+            return
+        }
         courseLabel.text = filteredClasses[myIndex].course
         subjectLabel.text = filteredClasses[myIndex].subject
         instructorLabel.text = filteredClasses[myIndex].instructor

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Katie Cai. All rights reserved.
 //
 
-//FOR DEMO CHANGE LINE 100
+//FOR DEMO CHANGE LINE 32
 
 import UIKit
 import GoogleMaps
@@ -29,8 +29,8 @@ class ClassesViewController: UIViewController {
     var emptyClassrooms: [String] = []
     var processedClasses = false
     
-    let today = "Wednesday, March 7, 2018 at 9:15:08 AM Pacific Standard Time"
-    //        let today = Date().description(with: .current)
+//    let today = "Wednesday, March 7, 2018 at 9:15:08 AM Pacific Standard Time"
+    let today = Date().description(with: .current)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ class ClassesViewController: UIViewController {
     }
     
     
-    //Since swift is a little bitch and won't let me return the first letter of a String
+    //Since swift is a little bitch and won't let me 0 index the first letter of a String
     func getDayOfWeek() -> String {
         let today: String = Date().description(with: .current)
         let dayOfWeek = today.components(separatedBy: ",")[0]
@@ -127,7 +127,7 @@ class ClassesViewController: UIViewController {
         let timePeriod = parts[6]
         today_hour = getMilitaryHour(hour: today_hour, tp: timePeriod)
         
-        //Get Time Period From String
+        //Get Start Time
         let class_time = schedule.components(separatedBy: "-")
         let start_time = class_time[0]
         let end_time = class_time[1]
@@ -146,6 +146,7 @@ class ClassesViewController: UIViewController {
         }
         startHour = getMilitaryHour(hour: startHour, tp: startTimePeriod)
         
+        //Get End Time
         index = end_time.index(end_time.endIndex, offsetBy: -2)
         let endTimePeriod = String(end_time[index...])
         let endTime = end_time[..<index]
@@ -159,6 +160,7 @@ class ClassesViewController: UIViewController {
         }
         endHour = getMilitaryHour(hour: endHour, tp: endTimePeriod)
         
+        //Compare now to class schedule
         if (startHour < today_hour && today_hour < endHour) {
             return true
         }
@@ -179,7 +181,7 @@ class ClassesViewController: UIViewController {
         filteredClasses = []
         emptyClassrooms = []
         
-        print(building)
+        print("Searching in ", building)
 //        var filteredClasses: [uclass] = []
         var nowClassrooms: Set = Set<String>()
         var allClassrooms: Set = Set<String>()
@@ -264,20 +266,13 @@ class ClassesViewController: UIViewController {
             
             self.emptyClassrooms = Array(allClassrooms.subtracting(nowClassrooms))
 //            print(self.emptyClassrooms)
-
-            print(filteredClasses)
+//            print(filteredClasses)
             self.processedClasses = true
 
             self.tableView.reloadData()
             
-            
-//            for c in filteredClasses {
-//                print(c.day_time)
-//            }
             print("Finished Processing Classes")
-                        //            print(buildings)
             
-            //            print(String(data: response.data!, encoding: String.Encoding.utf8)!)
         }
         
     }
@@ -297,6 +292,7 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
         
         if (option == 0) {
             // empty classrooms
+            print(emptyClassrooms)
             if(emptyClassrooms.count == 0) {
                 cell.textLabel?.text = fillerText
             } else {
@@ -304,6 +300,7 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         else if (option == 1) {
+            print(filteredClasses)
             if(filteredClasses.count == 0) {
                 cell.textLabel?.text = fillerText
             } else {
