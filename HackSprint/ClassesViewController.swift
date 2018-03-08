@@ -22,15 +22,13 @@ class ClassesViewController: UIViewController {
     var building: String!
     var geocoords: (Double, Double)!
     var option: Int!
-    var filteredClasses: [String] = []
+    var filteredClasses: [uclass] = []
+    var emptyClassrooms: [String] = []
     
     let today = "Wednesday, March 7, 2018 at 9:15:08 AM Pacific Standard Time"
     //        let today = Date().description(with: .current)
     
     override func viewDidLoad() {
-        //print(geocoords)
-//        print(option)
-        
         super.viewDidLoad()
         
         let lat = geocoords.0
@@ -49,7 +47,14 @@ class ClassesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        classesLabel.font = UIFont.boldSystemFont(ofSize: 28.0)
+        classesLabel.font = UIFont(name: "Helvetica-Light", size: 28.0)
+        
+        if (option == 0) {
+            classesLabel.text = "  Empty Classrooms"
+        }
+        else if (option == 1) {
+            classesLabel.text = "  Current Classes"
+        }
         
         print("Running with", today)
         getClasses(building: building)
@@ -58,12 +63,6 @@ class ClassesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func populateListView(classes: [uclass]) {
-        for c in classes {
-            filteredClasses.append(c.course)
-        }
     }
     
     //Since swift is a little bitch and won't let me return the first letter of a String
@@ -173,7 +172,7 @@ class ClassesViewController: UIViewController {
     
     func getClasses(building: String) {
         print(building)
-        var filteredClasses: [uclass] = []
+//        var filteredClasses: [uclass] = []
         var nowClassrooms: Set = Set<String>()
         var allClassrooms: Set = Set<String>()
         
@@ -240,7 +239,7 @@ class ClassesViewController: UIViewController {
                                     let days = day_time_parts[0]
                                     let time = day_time_parts[1]
                                     if (self.isNow(schedule: time, daysOfWeek: days)) {
-                                        filteredClasses.append(myClass)
+                                        self.filteredClasses.append(myClass)
                                         nowClassrooms.insert(loc)
                                     }
                                 }
@@ -250,18 +249,18 @@ class ClassesViewController: UIViewController {
                 }
             }
             
-            print(allClassrooms.subtracting(nowClassrooms))
+            self.emptyClassrooms = Array(allClassrooms.subtracting(nowClassrooms))
+            print(self.emptyClassrooms)
 
+            self.tableView.reloadData()
+            
 //            print(filteredClasses)
             
 //            for c in filteredClasses {
 //                print(c.day_time)
 //            }
             print("Finished Processing Classes")
-            
-            self.populateListView(classes: filteredClasses)
-            self.tableView.reloadData()
-            //            print(buildings)
+                        //            print(buildings)
             
             //            print(String(data: response.data!, encoding: String.Encoding.utf8)!)
         }
@@ -272,12 +271,21 @@ class ClassesViewController: UIViewController {
 extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = filteredClasses[indexPath.row]
+        if (option == 0) {
+            // empty classrooms
+            cell.textLabel?.text = emptyClassrooms[indexPath.row]
+        }
+        else if (option == 1) {
+            cell.textLabel?.text = filteredClasses[indexPath.row].subject + ": " + filteredClasses[indexPath.row].course
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        print(filteredClasses)
+        if (option == 0) {
+            return emptyClassrooms.count
+        }
         return filteredClasses.count
     }
     

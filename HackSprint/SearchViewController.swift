@@ -15,6 +15,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, CLLocationMan
     @IBOutlet var mapView: GMSMapView?
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var searchLabel: UILabel!
     
     let locationManager = CLLocationManager()
     
@@ -45,9 +46,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        
+//        Xcode thinks we in SF so we're not demoing this!!
+//        self.locationManager.requestAlwaysAuthorization()
+//        self.locationManager.requestWhenInUseAuthorization()
 //        if CLLocationManager.locationServicesEnabled() {
 //            locationManager.delegate = self as CLLocationManagerDelegate
 //            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -71,6 +72,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, CLLocationMan
         marker.position = CLLocationCoordinate2D(latitude: 34.0689, longitude: -118.4452)
         marker.title = "You are here"
         marker.map = mapView
+        
+        searchLabel.font = UIFont(name: "Helvetica-Light", size: 28.0)
         
         searchBar.delegate = self
         tableView.delegate = self
