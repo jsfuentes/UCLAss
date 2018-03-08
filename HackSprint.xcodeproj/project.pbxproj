@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C899F242050CB9900F5221A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C899F232050CB9900F5221A /* DetailsViewController.swift */; };
 		46229337204A755700529311 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46229336204A755700529311 /* LaunchViewController.swift */; };
 		46229339204A867E00529311 /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46229338204A867E00529311 /* ClassesViewController.swift */; };
 		46681DB5203E691800A8925D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46681DB4203E691800A8925D /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C899F232050CB9900F5221A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		46229336204A755700529311 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		46229338204A867E00529311 /* ClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
 		46681DB4203E691800A8925D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				46ABC4B7203534A200C4FDC8 /* AppDelegate.swift */,
 				46229336204A755700529311 /* LaunchViewController.swift */,
 				46ABC4B9203534A200C4FDC8 /* SearchViewController.swift */,
+				0C899F232050CB9900F5221A /* DetailsViewController.swift */,
 				46229338204A867E00529311 /* ClassesViewController.swift */,
 				46681DB4203E691800A8925D /* Main.storyboard */,
 				46681DB6203E692600A8925D /* LaunchScreen.storyboard */,
@@ -359,6 +362,7 @@
 				46ABC4B8203534A200C4FDC8 /* AppDelegate.swift in Sources */,
 				46229339204A867E00529311 /* ClassesViewController.swift in Sources */,
 				9C3FBBF6204FC416000FACD3 /* uclass.swift in Sources */,
+				0C899F242050CB9900F5221A /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
