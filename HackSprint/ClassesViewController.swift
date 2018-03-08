@@ -24,7 +24,7 @@ class ClassesViewController: UIViewController {
     var option: Int!
     var filteredClasses: [String] = []
     
-    let today = "Wednesday, March 7, 2018 at 10:15:08 AM Pacific Standard Time"
+    let today = "Wednesday, March 7, 2018 at 9:15:08 AM Pacific Standard Time"
     //        let today = Date().description(with: .current)
     
     override func viewDidLoad() {
@@ -174,6 +174,8 @@ class ClassesViewController: UIViewController {
     func getClasses(building: String) {
         print(building)
         var filteredClasses: [uclass] = []
+        var nowClassrooms: Set = Set<String>()
+        var allClassrooms: Set = Set<String>()
         
         Alamofire.request("http://api.ucladevx.com/courses/?quarter=Winter").responseJSON { (response) in
             
@@ -227,17 +229,19 @@ class ClassesViewController: UIViewController {
 //                                day_time.append(dt)
 //                            }
 //                        }
-
+                        
                         for (i, loc) in rawLocation!.enumerated() {
                             if (loc.range(of:building) != nil) {
                                 let myClass = uclass(course: course!, subject: subject!, location: loc, instructor: rawInstructor![i], day_time: raw_day_time![i])
                                 //discard classes for now, look at above TODO
                                 if(myClass.day_time.range(of: "\n") == nil) {
+                                    allClassrooms.insert(loc)
                                     let day_time_parts = myClass.day_time.components(separatedBy: " ")
                                     let days = day_time_parts[0]
                                     let time = day_time_parts[1]
                                     if (self.isNow(schedule: time, daysOfWeek: days)) {
                                         filteredClasses.append(myClass)
+                                        nowClassrooms.insert(loc)
                                     }
                                 }
                             }
@@ -246,6 +250,8 @@ class ClassesViewController: UIViewController {
                 }
             }
             
+            print(allClassrooms.subtracting(nowClassrooms))
+
 //            print(filteredClasses)
             
 //            for c in filteredClasses {
@@ -271,7 +277,7 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(filteredClasses)
+//        print(filteredClasses)
         return filteredClasses.count
     }
     
