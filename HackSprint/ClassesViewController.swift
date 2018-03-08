@@ -13,6 +13,9 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 
+var myIndex = 0
+var filteredClasses: [uclass] = []
+
 class ClassesViewController: UIViewController {
 
     @IBOutlet var mapView: GMSMapView?
@@ -22,7 +25,7 @@ class ClassesViewController: UIViewController {
     var building: String!
     var geocoords: (Double, Double)!
     var option: Int!
-    var filteredClasses: [uclass] = []
+    
     var emptyClassrooms: [String] = []
     var processedClasses = false
     
@@ -65,6 +68,7 @@ class ClassesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     //Since swift is a little bitch and won't let me return the first letter of a String
     func getDayOfWeek() -> String {
@@ -245,7 +249,7 @@ class ClassesViewController: UIViewController {
                                     let days = day_time_parts[0]
                                     let time = day_time_parts[1]
                                     if (self.isNow(schedule: time, daysOfWeek: days)) {
-                                        self.filteredClasses.append(myClass)
+                                        filteredClasses.append(myClass)
                                         nowClassrooms.insert(loc)
                                     }
                                 }
@@ -257,8 +261,10 @@ class ClassesViewController: UIViewController {
             
             self.emptyClassrooms = Array(allClassrooms.subtracting(nowClassrooms))
 //            print(self.emptyClassrooms)
-            print(self.filteredClasses)
+
+            print(filteredClasses)
             self.processedClasses = true
+
             self.tableView.reloadData()
             
             
@@ -324,4 +330,13 @@ extension ClassesViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = indexPath.row
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    
+    
 }
+
+
